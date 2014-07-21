@@ -22,8 +22,13 @@ angular.module('multiselectApp')
       link: function multiSelectLink(scope, element, attrs) {
         var $dropdown = element.find('.multi-select-dropdown'),
             $container = element.find('.multi-select-container'),
+
             selectedOptions = [],
             otherHistory = '';
+
+        var displayOptions = function displayOptions() {
+              $container.text(selectedOptions.sort().join(', '));
+            };
 
         // default options
         scope.showFilters = scope.showFilters || true;
@@ -60,11 +65,16 @@ angular.module('multiselectApp')
             selectedOptions.splice(selectedOptions.indexOf(option.value), 1);
           }
 
-          $container.text(selectedOptions.sort().join(', '));
+          displayOptions();
         };
 
         // "other" field
         scope.doOther = function doOther() {
+          console.log(otherHistory);
+          console.log(otherHistory.length);
+          console.log(selectedOptions.indexOf(otherHistory));
+          console.log(scope.other);
+
           if (otherHistory.length > 0) {
             selectedOptions.splice(selectedOptions.indexOf(otherHistory), 1);
           }
@@ -72,9 +82,12 @@ angular.module('multiselectApp')
           if (scope.other !== undefined && scope.other.length > 0) {
             selectedOptions.push(scope.other);
             otherHistory = scope.other;
+            console.log(selectedOptions);
           } else {
             otherHistory = '';
           }
+
+          displayOptions();
         }
       }
     };
