@@ -49,12 +49,21 @@ angular.module('multiselectApp')
 
         // select all options
         scope.selectAll = function selectAll() {
+          angular.forEach(scope.values, function (value, key) {
+            if (selectedOptions.indexOf(value.value) === -1) {
+              selectedOptions.push(value.value);
+            }
+          });
 
+          displayOptions();
         };
 
         // deselect all options
         scope.selectNone = function selectNone() {
+          selectedOptions = [];
+          scope.other = '';
 
+          displayOptions();
         };
 
         // select/deselect option
@@ -70,11 +79,6 @@ angular.module('multiselectApp')
 
         // "other" field
         scope.doOther = function doOther() {
-          console.log(otherHistory);
-          console.log(otherHistory.length);
-          console.log(selectedOptions.indexOf(otherHistory));
-          console.log(scope.other);
-
           if (otherHistory.length > 0) {
             selectedOptions.splice(selectedOptions.indexOf(otherHistory), 1);
           }
@@ -82,7 +86,6 @@ angular.module('multiselectApp')
           if (scope.other !== undefined && scope.other.length > 0) {
             selectedOptions.push(scope.other);
             otherHistory = scope.other;
-            console.log(selectedOptions);
           } else {
             otherHistory = '';
           }
