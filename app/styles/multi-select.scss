@@ -85,6 +85,14 @@
     }
   }
 
+  .hide {
+    display: none !important;
+  }
+
+  .show {
+    display: block !important;
+  }
+
   .form-control {
     display: block;
     width: 100%;

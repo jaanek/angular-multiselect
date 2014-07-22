@@ -84,6 +84,14 @@
   font-size: 0.9em;
 }
 
+.multi-select .hide {
+  display: none !important;
+}
+
+.multi-select .show {
+  display: block !important;
+}
+
 .multi-select .form-control {
   display: block;
   width: 100%;
