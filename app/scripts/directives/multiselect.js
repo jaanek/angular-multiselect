@@ -19,7 +19,7 @@ angular.module('multiselectApp')
         showOther: '@'
       },
 
-      link: function multiSelectLink(scope, element, attrs) {
+      link: function multiSelectLink(scope, element) {
         var $dropdown = element.find('.multi-select-dropdown'),
             $container = element.find('.multi-select-container'),
 
@@ -59,7 +59,7 @@ angular.module('multiselectApp')
             }
           });
 
-          angular.forEach(scope.values, function (value, key) {
+          angular.forEach(scope.values, function (value) {
             if (selectedOptions.indexOf(value.value) === -1) {
               selectedOptions.push(value.value);
             }
@@ -84,7 +84,7 @@ angular.module('multiselectApp')
 
         // select/deselect option
         scope.selectOption = function selectOption($event, option) {
-          var $listOption = $($event.target);
+          var $listOption = angular.element($event.target);
 
           if (selectedOptions.indexOf(option.value) === -1) {
             selectedOptions.push(option.value);
@@ -111,7 +111,7 @@ angular.module('multiselectApp')
           }
 
           displayOptions();
-        }
+        };
       }
     };
   });
