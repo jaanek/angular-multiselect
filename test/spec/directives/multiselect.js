@@ -12,9 +12,9 @@ describe('Directive: multiSelect', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
+  it('should replace the multi-select tag', inject(function ($compile) {
     element = angular.element('<multi-select></multi-select>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the multiSelect directive');
+    expect(element.text()).toBe('');
   }));
 });
