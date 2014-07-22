@@ -9,7 +9,7 @@
 angular.module('multiselectApp')
   .directive('multiSelect', function () {
     return {
-      templateUrl: 'views/multi-select.html',
+      templateUrl: 'views/directives/multi-select.html',
       restrict: 'E',
       replace: true,
 
