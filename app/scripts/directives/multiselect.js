@@ -4,7 +4,7 @@
  * @ngdoc directive
  * @name multiselectApp.directive:multiSelect
  * @description
- * # multiSelect
+ * # Angular Multi Select directive
  */
 angular.module('multiselectApp')
   .directive('multiSelect', function () {
