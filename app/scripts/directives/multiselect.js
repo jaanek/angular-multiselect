@@ -65,6 +65,8 @@ angular.module('multiselectApp')
             }
           });
 
+          scope.doOther();
+
           displayOptions();
         };
 
