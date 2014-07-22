@@ -49,6 +49,16 @@ angular.module('multiselectApp')
 
         // select all options
         scope.selectAll = function selectAll() {
+          var $el;
+
+          element.find('.multi-select-option-link').each(function () {
+            $el = angular.element(this);
+
+            if (! $el.hasClass('selected')) {
+              $el.addClass('selected');
+            }
+          });
+
           angular.forEach(scope.values, function (value, key) {
             if (selectedOptions.indexOf(value.value) === -1) {
               selectedOptions.push(value.value);
@@ -60,6 +70,10 @@ angular.module('multiselectApp')
 
         // deselect all options
         scope.selectNone = function selectNone() {
+          element.find('.multi-select-option-link').each(function () {
+            angular.element(this).removeClass('selected');
+          });
+
           selectedOptions = [];
           scope.other = '';
 
@@ -67,11 +81,15 @@ angular.module('multiselectApp')
         };
 
         // select/deselect option
-        scope.selectOption = function selectOption(option) {
+        scope.selectOption = function selectOption($event, option) {
+          var $listOption = $($event.target);
+
           if (selectedOptions.indexOf(option.value) === -1) {
             selectedOptions.push(option.value);
+            $listOption.addClass('selected');
           } else {
             selectedOptions.splice(selectedOptions.indexOf(option.value), 1);
+            $listOption.removeClass('selected');
           }
 
           displayOptions();
