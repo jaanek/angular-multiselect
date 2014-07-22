@@ -28,7 +28,8 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'test/spec/**/*.js',
+      'app/views/**/*.html'
     ],
 
     // list of files / patterns to exclude
@@ -50,7 +51,8 @@ module.exports = function(config) {
     reporters: [ 'progress', 'coverage' ],
 
     preprocessors: {
-      'app/scripts/**/*.js': [ 'coverage' ]
+      'app/scripts/**/*.js': [ 'coverage' ],
+      '**/*.html': [ 'ng-html2js' ]
     },
 
     coverageReporter: {
@@ -62,7 +64,8 @@ module.exports = function(config) {
     plugins: [
       'karma-phantomjs-launcher',
       'karma-jasmine',
-      'karma-coverage'
+      'karma-coverage',
+      'karma-ng-html2js-preprocessor'
     ],
 
     // Continuous Integration mode
