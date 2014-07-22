@@ -1,6 +1,7 @@
 .multi-select > .multi-select-container[readonly] {
   background-color: #fff;
   cursor: default;
+  height: auto;
 }
 
 .multi-select > .multi-select-dropdown {
@@ -81,4 +82,43 @@
 
 .multi-select > .multi-select-dropdown > .multi-select-other-container > .multi-select-other {
   font-size: 0.9em;
+}
+
+.multi-select .form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.multi-select .form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.multi-select .form-control::-moz-placeholder {
+  color: #777;
+  opacity: 1;
+}
+
+.multi-select .form-control:-ms-input-placeholder {
+  color: #777;
+}
+
+.multi-select .form-control::-webkit-input-placeholder {
+  color: #777;
 }
