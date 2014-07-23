@@ -38,7 +38,6 @@ describe('Directive: multiSelect', function () {
     expect(element.html()).not.toBe('<multi-select values="values" show-filters="true" show-other="true"></multi-select>');
   });
 
-
   it('should create a values scope array');
   it('should create a toggle dropdown');
   it('should show filters');
