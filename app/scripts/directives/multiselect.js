@@ -44,6 +44,9 @@ angular.module('multiselectApp')
 
         // show dropdown on focus
         scope.onFocus = function onFocus() {
+          // close all other dropdowns on the page before showing the selected one
+          angular.element('body').find('.multi-select-dropdown').removeClass('show').addClass('hide');
+          
           $dropdown.removeClass('hide').addClass('show');
         };
 
